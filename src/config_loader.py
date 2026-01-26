@@ -14,7 +14,7 @@ def load_config(config_path: str) -> dict:
     """
     config_file = Path(config_path)
 
-    if not config_file.exists(config_path):
+    if not config_file.exists():
         raise FileNotFoundError(f"Arquivo de configuração não encontrado: {config_path}")
 
     with config_file.open("r", encoding="utf-8") as file:

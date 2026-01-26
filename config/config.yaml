@@ -1,6 +1,6 @@
-image_1: "data/input/produto_a.jpg"
-image_2: "data/input/produto_b.jpg"
+image_1: "data/input/product_a.jpg"
+image_2: "data/input/product_b.jpg"
 
 output_dir: "data/output"
 
-threshold: 5000
+threshold: 80
