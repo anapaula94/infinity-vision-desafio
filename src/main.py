@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 from pathlib import Path
+from database import DatabaseManager
 
 from config_loader import load_config
 from image_processing import load_and_preprocess_image
@@ -49,6 +50,23 @@ def main(config_path: str) -> None:
     output_path = config["output_dir"] / "resultado_comparacao.jpg"
     cv2.imwrite(str(output_path), combined_image)
     print(f"Imagem transformada salva em: {output_path}")
+
+    #salva em bando de dados
+    if "database" in config:
+        try:
+            db = DatabaseManager(config["database"])
+            db.save_result(
+                img1=config["image_1"],
+                img2=config["image_2"],
+                img_res=output_path,
+                dist=distance,
+                is_same=same_product
+            )
+            print("Dados salvos no banco de dados com sucesso.")
+            db.close()
+        except Exception as e:
+            print(f"Aviso: Não foi possível salvar no banco.Erro: {e}")
+
 
 if __name__ == "__main__":
     #configuração do caminho(path)

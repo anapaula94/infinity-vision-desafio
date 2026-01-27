@@ -20,7 +20,7 @@ def load_config(config_path: str) -> dict:
     with config_file.open("r", encoding="utf-8") as file:
         config = yaml.safe_load(file)
 
-    required_keys = ["image_1", "image_2", "output_dir", "threshold"]
+    required_keys = ["image_1", "image_2", "output_dir", "threshold","database"]
     for key in required_keys:
         if key not in config:
             raise KeyError(f"Chave de configurção ausente: {key}")
@@ -32,5 +32,8 @@ def load_config(config_path: str) -> dict:
 
     #Cria o repositório output caso não exista
     config["output_dir"].mkdir(parents=True, exist_ok=True)
+
+    if "database" in config:
+        config["database"]["port"] = int(config["database"].get("port",5432))
 
     return config
