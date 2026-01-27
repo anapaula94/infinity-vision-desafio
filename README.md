@@ -22,24 +22,6 @@ A aplicação utiliza técnicas de processamento digital de imagens para determi
 - PostgreSQL: Banco de dados relacional para persistência de logs.
 - PyYAML: Manipulação do arquivo de configuração.
 
-## Estrutura do projeto
-
-INFINITY-VISION-DESAFIO/
-├── config/
-│   └── config.yaml          # Definições de imagens, threshold e banco de dados
-├── data/
-│   ├── input/               # Imagens originais (.jpg)
-│   └── output/              # Local de salvamento da imagem concatenada
-├── sql/
-│   └── create_table.sql     # Script de criação da tabela no PostgreSQL
-├── src/
-│   ├── main.py              # Orquestrador da aplicação
-│   ├── image_processing.py  # Funções de GrayScale, Resize e Crop
-│   ├── similarity.py        # Cálculo de Distância Euclidiana e Threshold
-│   ├── config_loader.py     # Leitura e validação do YAML
-│   └── database.py          # Gerenciamento da conexão com o banco (Extra)
-└── README.md
-
 ## Configuração e Instalação
 
 1. Requisitos Prévios
