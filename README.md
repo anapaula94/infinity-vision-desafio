@@ -10,6 +10,7 @@ euclidiana entre versões pré-processadas das imagens.
 
 ## Funcionalidades Principais
 A aplicação utiliza técnicas de processamento digital de imagens para determinar se duas fotos representam o mesmo item com base em um limiar (threshold) configurável.
+- Busca Dinâmica 1:N: Compara uma imagem de entrada contra todos os produtos cadastrados no banco de dados.
 - Processamento de Imagem: Conversão para escala de cinza e redimensionamento para 256x256.
 - Visão Computacional: Extração de contornos para isolar o produto (crop) e cálculo de Distância Euclidiana.
 - Análise de Similaridade: Classificação automática entre "Mesmo Produto" ou "Produtos Diferentes".
@@ -20,6 +21,7 @@ A aplicação utiliza técnicas de processamento digital de imagens para determi
 - OpenCV: Biblioteca especializada para transformações e visão computacional.
 - NumPy: Operações matemáticas em matrizes para cálculo de distância.
 - PostgreSQL: Banco de dados relacional para persistência de logs.
+- Psycopg2: Driver de conexão com o banco de dados.
 - PyYAML: Manipulação do arquivo de configuração.
 
 ## Configuração e Instalação
@@ -36,6 +38,7 @@ Execute o script em sql/create_table.sql para criar a tabela resultados_comparac
 ## Como Executar
 
 No terminal, a partir da raiz do projeto, execute o Bash:
+python src/populate_db.py
 python src/main.py
 
 ## Saídas do Programa
