@@ -1,6 +1,8 @@
 #Configuração imagens
-image_1: "data/input/product_c.jpg"
-image_2: "data/input/product_d.jpg"
+#image_1: "data/input/product_c.jpg"
+#image_2: "data/input/product_d.jpg"
+
+image_test: "data/input/product_b.jpg"
 
 output_dir: "data/output"
 
@@ -9,7 +11,7 @@ threshold: 80
 #Configurações banco de dados
 database:
   dbname: "infinity_vision_db"
-  user: "seu-usuario"
+  user: "seu_usuario"
   password: "sua-senha"
   host: "localhost"
   port: 5432

@@ -22,9 +22,9 @@ class DatabaseManager:
             cur.execute(query, (str(img1), str(img2), str(img_res), dist, is_same))
             self.conn.commit()
 
-    def list_all_history(self):
-        #Função para ler o banco e listar imagens salvas.
-        query = "SELECT * FROM resultados_comparacao ORDER BY data_execucao DESC"
+    def list_all_products(self):
+        #Função para ler o banco de dados e listar todas as imagens
+        query = "SELECT nome_produto, caminho_imagem_referencia FROM produtos"
         with self.conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(query)
             return cur.fetchall()
