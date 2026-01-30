@@ -82,45 +82,6 @@ def main(config_path: str) -> None:
     except Exception as e:
         print(f"Erro durante a execução: {e}")
 
-        """#Mostra os resultados
-        print("Resultados da Comparação:")
-        print(f"Imagem 1: {config['image_1'].name}")
-        print(f"Imagem 2: {config['image_2'].name}")
-        print(f"Distância Euclidiana: {distance: .4f}")
-
-        if same_product:
-            print("Resultado: MESMO PRODUTO")
-        else:
-            print("Resultado: PRODUTOS DIFERENTES")
-
-        #Salva as alterações
-        # Converte de float [0,1] de volta para uint8 [0,255] para salvar a imagem
-        img1_save = (image_1 * 255).astype(np.uint8)
-        img2_save = (image_2 * 255).astype(np.uint8)
-
-        # Concatena as imagens transformadas lado a lado
-        combined_image = np.hstack((img1_save, img2_save))
-        # Define o caminho de saída vindo do config e salva [cite: 4, 11]
-        output_path = config["output_dir"] / "resultado_comparacao.jpg"
-        cv2.imwrite(str(output_path), combined_image)
-        print(f"Imagem transformada salva em: {output_path}")
-
-        #salva em bando de dados
-        if "database" in config:
-            try:
-                db = DatabaseManager(config["database"])
-                db.save_result(
-                    img1=config["image_1"],
-                    img2=config["image_2"],
-                    img_res=output_path,
-                    dist=distance,
-                    is_same=same_product
-                )
-                print("Dados salvos no banco de dados com sucesso.")
-                db.close()
-            except Exception as e:
-                print(f"Aviso: Não foi possível salvar no banco.Erro: {e}")"""
-
 
 if __name__ == "__main__":
     #configuração do caminho(path)

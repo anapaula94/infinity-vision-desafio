@@ -1,8 +1,4 @@
-#Configuração imagens
-#image_1: "data/input/product_c.jpg"
-#image_2: "data/input/product_d.jpg"
-
-image_test: "data/input/product_b.jpg"
+image_test: "data/input/product_f.jpg"
 
 output_dir: "data/output"
 
@@ -11,7 +7,10 @@ threshold: 80
 #Configurações banco de dados
 database:
   dbname: "infinity_vision_db"
-  user: "seu_usuario"
-  password: "sua-senha"
-  host: "localhost"
+  user: "postgres"
+  password: "@123456@"
+#Se container usar:
+  host: "db"
+ #Se local usar:
+ #host: "localhost" 
   port: 5432

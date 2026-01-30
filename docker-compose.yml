@@ -1,0 +1,29 @@
+services:
+  #Serviço de Banco de Dados
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: infinity_vision_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "@123456@"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    
+  #Serviço da aplicação Python
+  app:
+    build: .
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    tty: true          
+    stdin_open: true  
+    command: tail -f /dev/null
+    environment:
+      - PYTHONUNBUFFERED=1
+
+volumes:
+  postgres_data:

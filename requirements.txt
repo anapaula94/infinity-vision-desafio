@@ -1,4 +1,4 @@
-opencv-python
+opencv-python-headless
 numpy
-PyYAML
-psycopg2
+psycopg2-binary
+pyyaml
