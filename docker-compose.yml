@@ -5,8 +5,8 @@ services:
     restart: always
     environment:
       POSTGRES_DB: infinity_vision_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: "@123456@"
+      POSTGRES_USER: seu-usuario
+      POSTGRES_PASSWORD: "sua-senha"
     ports:
       - "5432:5432"
     volumes:
