@@ -17,12 +17,13 @@ A aplicação utiliza técnicas de processamento digital de imagens para determi
 - Banco de Dados: Armazenamento de resultados e caminhos de arquivos em banco de dados PostgreSQL
 
 ## Tecnologias utilizadas
-- Python 3.10+: Linguagem base.
+- Python 3.9+: Linguagem base.
 - OpenCV: Biblioteca especializada para transformações e visão computacional.
 - NumPy: Operações matemáticas em matrizes para cálculo de distância.
 - PostgreSQL: Banco de dados relacional para persistência de logs.
 - Psycopg2: Driver de conexão com o banco de dados.
 - PyYAML: Manipulação do arquivo de configuração.
+- Docker & Docker Compose: Orquestração de containers.
 
 ## Configuração e Instalação
 
@@ -35,11 +36,42 @@ Execute o script em sql/create_table.sql para criar a tabela resultados_comparac
 - Caminhos das imagens originais e da imagem resultado (concatenada).
 - A distância numérica calculada e o resultado final da comparação.
 
-## Como Executar
+## 🚀 Como Executar (Via Docker)
+
+Esta é a forma recomendada, pois o Docker configurará automaticamente o banco de dados PostgreSQL e o ambiente Python.
+
+###  Requisitos Prévios
+- Ter o **Docker** e o **Docker Desktop** instalados.
+
+### Iniciar os Containers
+Na raiz do projeto, execute:
+```bash
+docker compose up -d --build
+```
+### Criar Tabelas
+
+```bash
+docker compose exec db psql -U postgres -d infinity_vision_db -c "conteudo do arquivo create_table.sql"
+```
+
+### Popular banco com imagens de referência
+```bash
+docker compose exec app python src/populate_db.py
+```
+### Rodar a Comparação Principal
+```bash
+docker compose exec app python src/main.py
+```
+
+## Como Executar Localmente
 
 No terminal, a partir da raiz do projeto, execute o Bash:
+```bash
 python src/populate_db.py
+```
+```bash
 python src/main.py
+```
 
 ## Saídas do Programa
 
